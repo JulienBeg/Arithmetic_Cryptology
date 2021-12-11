@@ -1,10 +1,11 @@
-def testRM(n,verbose=False):
-    a = randint(2,n-1)
-    m = n - 1
+def testRM(N,verbose=False):
 
-    t = m.valuation(2)
-    m /= (2 ** t)
-    g = gcd(a,n)
+    a = randint(2,N-1)
+    m = N - 1
+
+    v = m.valuation(2)
+    m /= (2 ** v)
+    g = gcd(a,N)
 
     if g > 1:
         if verbose:
@@ -21,8 +22,8 @@ def testRM(n,verbose=False):
 
     for i in range(1,v):
         if (b^2 - 1) == 0:
-            g = gcd(b+1,n)
-            if g == 1 or g == n:
+            g = gcd(b+1,N)
+            if g == 1 or g == N:
                 if verbose:
                     print("We found the Rabin Miller witness g : " + str(g))
                 return False
